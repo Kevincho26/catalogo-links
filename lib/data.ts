@@ -51,7 +51,7 @@ export const bookmarks: Bookmark[] = [
     title: "Cinemacity",
     url: "https://cinemacity.cc",
     description: "High quality movies, TV shows and anime streaming servers [DUB & SUB]",
-    category: "movies & tv shows", "anime",
+    category: "movies & tv shows",
     tags: ["movies", "tv shows", "anime"],
   },
   {
