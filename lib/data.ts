@@ -31,7 +31,7 @@ export const bookmarks: Bookmark[] = [
   {
     id: "2",
     title: "NTV.cx",
-    url: "https://ntv.cx,
+    url: "https://ntv.cx",
     description: "High quality sport streams mainly in English",
     category: "sports",
     tags: ["sports", "football", "basketball", "tennis", "racing"],
