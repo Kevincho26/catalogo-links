@@ -7,7 +7,7 @@ export const categories: Category[] = [
     description: "High quality sport streams: football, basketball, tennis, F1, etc",
   },
   {
-    slug: "movies-&-tv-shows",
+    slug: "movies-tv-shows",
     name: "Movies & TV Shows",
     description: "High quality movies and TV show streaming servers, SUB and DUB options.",
   },
@@ -51,7 +51,7 @@ export const bookmarks: Bookmark[] = [
     title: "Cinemacity",
     url: "https://cinemacity.cc",
     description: "High quality movies, TV shows and anime streaming servers [DUB & SUB]",
-    category: "movies & tv shows",
+    category: "movies-tv-shows",
     tags: ["movies", "tv shows", "anime"],
   },
   {
@@ -59,7 +59,7 @@ export const bookmarks: Bookmark[] = [
     title: "Showbox",
     url: "https://www.showbox.media/",
     description: "High quality movies, TV shows streaming servers [SUB]",
-    category: "movies-&-tv-shows",
+    category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
     featured: true,
   },
