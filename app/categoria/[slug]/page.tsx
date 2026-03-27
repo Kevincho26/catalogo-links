@@ -33,14 +33,14 @@ export default async function CategoryPage({
 
             <header className="mb-8 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
                 {category.bannerImage && (
-                    <div className="relative h-56 w-full md:h-72">
+                    <div className="relative aspect-[16/7] w-full">
                         <Image
                             src={category.bannerImage}
                             alt={category.name}
                             fill
                             className="object-cover"
                             priority
-                            sizes="100vw"
+                            sizes="(min-width: 1024px) 1152px, 100vw"
                         />
                         <div className="absolute inset-0 bg-black/35" />
                         <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">

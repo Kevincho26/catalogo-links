@@ -29,7 +29,7 @@ export const bookmarks: Bookmark[] = [
     url: "https://streamsports99.ru",
     description: "High quality sport streams from different countries",
     category: "sports",
-    tags: ["sports", "football", "basketball", "tennis", "racing"],
+    tags: ["football", "basketball", "tennis", "racing"],
     featured: true,
   },
   {
@@ -38,7 +38,7 @@ export const bookmarks: Bookmark[] = [
     url: "https://ntv.cx",
     description: "High quality sport streams mainly in English",
     category: "sports",
-    tags: ["sports", "football", "basketball", "tennis", "racing"],
+    tags: ["football", "basketball", "tennis", "racing"],
     featured: true,
   },
   {
@@ -47,7 +47,7 @@ export const bookmarks: Bookmark[] = [
     url: "https://dlstreams.top",
     description: "High quality sport streams from different countries",
     category: "sports",
-    tags: ["sports", "football", "basketball", "tennis", "racing"],
+    tags: ["football", "basketball", "tennis", "racing"],
     featured: true,
   },
   {
