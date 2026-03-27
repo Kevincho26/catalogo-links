@@ -4,21 +4,23 @@ export const categories: Category[] = [
   {
     slug: "sports",
     name: "Sports",
-    description: "High quality sport streams: football, basketball, tennis, F1, etc",
+    description: "Live sports, highlights and useful resources.",
     bannerImage: "/banners/sports.jpg",
+    image: "/categories/sports.jpg",
   },
   {
     slug: "movies-tv-shows",
     name: "Movies & TV Shows",
-    description: "High quality movies and TV show streaming servers, SUB and DUB options.",
+    description: "Movies, shows and entertainment resources.",
     bannerImage: "/banners/movies-tv-shows.jpg",
+    image: "/categories/movies-tv-shows.jpg",
   },
-
   {
     slug: "anime",
     name: "Anime",
-    description: "High quality anime streaming servers, SUB and DUB options.",
+    description: "Anime series, films and related resources.",
     bannerImage: "/banners/anime.jpg",
+    image: "/categories/anime.jpg",
   },
 ]
 

@@ -3,6 +3,7 @@ export type Category = {
   name: string
   description: string
   bannerImage?: string
+  image?: string
 }
 
 export type Bookmark = {
@@ -13,4 +14,5 @@ export type Bookmark = {
   category: string
   tags: string[]
   featured?: boolean
+  image?: string
 }

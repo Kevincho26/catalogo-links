@@ -4,17 +4,17 @@ import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 
 export const metadata: Metadata = {
-  title: "Mi Catálogo",
-  description: "Catálogo visual de bookmarks por categorías",
+    title: "Kevin’s Collection",
+    description: "A curated collection of free resources on the internet.",
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="es">
-      <body className="bg-neutral-50 text-neutral-900 antialiased">
+    return (
+        <html lang="en">
+        <body className="bg-neutral-50 text-neutral-900 antialiased">
         <SiteHeader />
         <main>{children}</main>
-      </body>
-    </html>
-  )
+        </body>
+        </html>
+    )
 }
