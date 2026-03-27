@@ -43,31 +43,31 @@ export default async function CategoryPage({
                             sizes="100vw"
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
 
                         <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8">
-                            <div className="flex max-w-2xl flex-col items-start gap-3">
+                            <div className="flex max-w-xl flex-col items-start gap-2">
                 <span
-                    className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm sm:text-sm"
+                    className="rounded-full border border-white/10 bg-black/20 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm sm:text-xs"
                     style={{ textShadow: "0 1px 8px rgba(0,0,0,0.35)" }}
                 >
                   Category
                 </span>
 
                                 <h1
-                                    className="text-3xl font-semibold tracking-tight text-white md:text-5xl"
+                                    className="font-heading text-3xl font-semibold tracking-tight text-white md:text-5xl"
                                     style={{ textShadow: "0 2px 12px rgba(0,0,0,0.45)" }}
                                 >
-                  <span className="box-decoration-clone rounded-xl bg-black/18 px-3 py-1.5 backdrop-blur-sm">
+                  <span className="box-decoration-clone rounded-lg bg-black/18 px-2.5 py-1 backdrop-blur-sm">
                     {category.name}
                   </span>
                                 </h1>
 
                                 <p
-                                    className="max-w-2xl text-sm leading-7 text-white/90 md:text-base"
+                                    className="max-w-lg text-sm leading-7 text-white/90 md:text-base"
                                     style={{ textShadow: "0 1px 8px rgba(0,0,0,0.35)" }}
                                 >
-                  <span className="box-decoration-clone rounded-xl bg-black/16 px-3 py-2 backdrop-blur-sm">
+                  <span className="box-decoration-clone rounded-lg bg-black/16 px-2.5 py-1.5 backdrop-blur-sm">
                     {category.description}
                   </span>
                                 </p>
@@ -81,7 +81,7 @@ export default async function CategoryPage({
                         <p className="text-sm uppercase tracking-[0.14em] text-neutral-500">
                             Category
                         </p>
-                        <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
+                        <h1 className="font-heading mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
                             {category.name}
                         </h1>
                         <p className="mt-3 max-w-2xl text-base leading-7 text-neutral-600">
