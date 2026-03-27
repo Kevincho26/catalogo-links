@@ -2,6 +2,7 @@ export type Category = {
   slug: string
   name: string
   description: string
+  bannerImage?: string
 }
 
 export type Bookmark = {
