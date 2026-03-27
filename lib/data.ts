@@ -83,7 +83,6 @@ export const bookmarks: Bookmark[] = [
 export function getCategoryBySlug(slug: string) {
   return categories.find((category) => category.slug === slug)
 }
-}
 
 export function getBookmarksByCategory(slug: string) {
   return bookmarks.filter((bookmark) => bookmark.category === slug)
