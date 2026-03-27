@@ -33,6 +33,7 @@ export const bookmarks: Bookmark[] = [
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     featured: true,
+    image: "/cards/sports1.jpg",
   },
   {
     id: "2",
@@ -41,6 +42,7 @@ export const bookmarks: Bookmark[] = [
     description: "High-quality sports streams, primarily in English.",
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
+    image: "/cards/sports2.jpg",
     featured: true,
   },
   {
@@ -50,6 +52,7 @@ export const bookmarks: Bookmark[] = [
     description: "High-quality sports streams from multiple countries.",
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
+    image: "/cards/sports3.jpg",
     featured: true,
   },
   {
