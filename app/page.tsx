@@ -15,9 +15,8 @@ export default function HomePage() {
                         alt="Home banner"
                         fill
                         priority
-                        className="object-cover"
+                        className="object-cover object-center sm:object-[70%_center]"
                         sizes="100vw"
-                        style={{ objectPosition: "70% center" }}
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/15 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/45 sm:to-black/10" />
