@@ -3,10 +3,10 @@ import {NextIntlClientProvider, hasLocale} from "next-intl"
 import {getMessages, setRequestLocale} from "next-intl/server"
 import {notFound} from "next/navigation"
 import {Geist, Manrope} from "next/font/google"
+import {Analytics} from "@vercel/analytics/next"
 import {routing} from "@/i18n/routing"
 import "@/app/globals.css"
 import {SiteHeader} from "@/components/site-header"
-import { Analytics } from "@vercel/analytics/next"
 
 const geist = Geist({
     subsets: ["latin"],
@@ -54,6 +54,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
             <SiteHeader />
             <main>{children}</main>
+            <Analytics />
         </NextIntlClientProvider>
         </body>
         </html>
