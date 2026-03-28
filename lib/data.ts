@@ -51,7 +51,7 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://www.fctv33.com",
     description: {
-      en: "High-quality sports from multiple countries.",
+      en: "High-quality streams from multiple countries.",
       es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
@@ -101,7 +101,7 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://dlstreams.top",
     description: {
-      en: "High-quality sports from multiple countries.",
+      en: "High-quality streams from multiple countries.",
       es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
@@ -118,7 +118,7 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://sportyhunter.fit",
     description: {
-      en: "High-quality sports from multiple countries.",
+      en: "High-quality streams from multiple countries.",
       es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
@@ -183,7 +183,7 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://tv.moviebite.cc/",
     description: {
-      en: "High-quality sports from multiple countries.",
+      en: "High-quality streams from multiple countries.",
       es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
