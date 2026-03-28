@@ -322,10 +322,10 @@ export const bookmarks: Bookmark[] = [
   {
     id: "18",
     title: {
-      en: "Gnulahd.nu",
-      es: "Gnulahd.nu",
+      en: "UniqueStream",
+      es: "UniqueStream",
     },
-    url: "https://ww3.gnulahd.nu/",
+    url: "https://uniquestream.net",
     description: {
       en: "Movies and Tv shows, dubbed and subbed.",
       es: "Peliculas y series dobladas y subtituladas.",
@@ -338,6 +338,22 @@ export const bookmarks: Bookmark[] = [
   {
     id: "19",
     title: {
+      en: "Gnulahd.nu",
+      es: "Gnulahd.nu",
+    },
+    url: "https://ww3.gnulahd.nu/",
+    description: {
+      en: "Movies and Tv shows, dubbed and subbed.",
+      es: "Peliculas y series dobladas y subtituladas.",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies4.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "20",
+    title: {
       en: "HdFull",
       es: "HdFull",
     },
@@ -348,11 +364,11 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies4.jpg",
+    image: "/cards/movies5.jpg",
     availability: "dub-sub",
   },
   {
-    id: "20",
+    id: "21",
     title: {
       en: "MirandoGratis",
       es: "MirandoGratis",
@@ -364,8 +380,56 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies5.jpg",
+    image: "/cards/movies6.jpg",
     availability: "dub",
+  },
+  {
+    id: "22",
+    title: {
+      en: "Nepu",
+      es: "Nepu",
+    },
+    url: "https://nepu.to",
+    description: {
+      en: "Movies and Tv shows in English, no subs",
+      es: "Peliculas y series en inglés, sin subs",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies7.jpg",
+    availability: "sub",
+  },
+  {
+    id: "23",
+    title: {
+      en: "1Moviesz",
+      es: "1Moviesz",
+    },
+    url: "https://1moviesz.to/home",
+    description: {
+      en: "Movies and Tv shows in English",
+      es: "Peliculas y series en inglés",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies8.jpg",
+    availability: "sub",
+  },
+  {
+    id: "24",
+    title: {
+      en: "La.movie",
+      es: "La.movie",
+    },
+    url: "https://la.movie/",
+    description: {
+      en: "Movies and Tv shows in English",
+      es: "Peliculas y series en inglés",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies9.jpg",
+    availability: "dub-sub",
   },
   {
     id: "31",
@@ -375,8 +439,8 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://anime.uniquestream.net/",
     description: {
-      en: "High-quality anime streaming sources [DUB + SUB].",
-      es: "Fuentes de streaming de anime en alta calidad [DUB + SUB].",
+      en: "Movies and Tv shows, dubbed and subbed.",
+      es: "Peliculas y series dobladas y subtituladas.",
     },
     category: "anime",
     tags: ["anime"],
