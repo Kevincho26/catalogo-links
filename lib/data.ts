@@ -118,8 +118,8 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://sportyhunter.fit",
     description: {
-      en: "High-quality streams from multiple countries.",
-      es: "Streams en alta calidad de varios países.",
+      en: "High-quality streams in English.",
+      es: "Streams en alta calidad en inglés."
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
@@ -295,8 +295,8 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://cinemacity.cc",
     description: {
-      en: "High-quality movie, TV, and anime streaming sources [DUB + SUB].",
-      es: "Fuentes de streaming de películas, TV y anime en alta calidad [DUB + SUB].",
+      en: "Only the latest releases, dubbing available in various languages..",
+      es: "Solo los últimos estrenos, doblaje disponible en varios idiomas.",
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows", "anime"],
@@ -311,13 +311,29 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://www.showbox.media/",
     description: {
-      en: "High-quality movie and TV streaming sources [SUB].",
-      es: "Fuentes de streaming de películas y TV en alta calidad [SUB].",
+      en: "High-quality movie and TV streaming .",
+      es: "Peliculas y series de alta calidad de streaming.",
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
     image: "/cards/movies2.jpg",
     availability: "sub",
+  },
+  {
+    id: "18",
+    title: {
+      en: "Gnulahd.nu",
+      es: "Gnulahd.nu",
+    },
+    url: "https://ww3.gnulahd.nu/",
+    description: {
+      en: "Movies and Tv shows, dubbed and subbed.",
+      es: "Peliculas y series dobladas y subtituladas.",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows", "anime"],
+    image: "/cards/movies3.jpg",
+    availability: "dub-sub",
   },
   {
     id: "31",

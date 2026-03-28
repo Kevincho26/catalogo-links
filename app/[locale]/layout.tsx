@@ -6,6 +6,7 @@ import {Geist, Manrope} from "next/font/google"
 import {routing} from "@/i18n/routing"
 import "@/app/globals.css"
 import {SiteHeader} from "@/components/site-header"
+import { Analytics } from "@vercel/analytics/next"
 
 const geist = Geist({
     subsets: ["latin"],
