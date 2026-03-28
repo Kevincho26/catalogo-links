@@ -46,34 +46,36 @@ export const bookmarks: Bookmark[] = [
   {
     id: "1",
     title: {
-      en: "StreamSports99",
-      es: "StreamSports99",
+      en: "FCTV33",
+      es: "FCTV33",
     },
-    url: "https://streamsports99.ru",
+    url: "https://www.fctv33.com",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "High-quality sports from multiple countries.",
+      es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     featured: true,
     image: "/cards/sports1.jpg",
+    availability: "en-es",
   },
   {
     id: "2",
     title: {
-      en: "NTV.cx",
-      es: "NTV.cx",
+      en: "Sportora",
+      es: "Sportora",
     },
-    url: "https://ntv.cx",
+    url: "https://sportora.ru/",
     description: {
-      en: "High-quality sports streams, primarily in English.",
-      es: "Streams deportivos de alta calidad, principalmente en inglés.",
+      en: "High-quality streams in English.",
+      es: "Streams en alta calidad en inglés.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports2.jpg",
     featured: true,
+    availability: "en",
   },
   {
     id: "3",
@@ -83,12 +85,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://streamed.pk",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "High-quality streams in English.",
+      es: "Streams en alta calidad en inglés.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports3.jpg",
+    availability: "en",
   },
   {
     id: "4",
@@ -98,12 +101,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://dlstreams.top",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "High-quality sports from multiple countries.",
+      es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports4.jpg",
+    availability: "en-es",
     featured: true,
   },
   {
@@ -114,12 +118,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://sportyhunter.fit",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "High-quality sports from multiple countries.",
+      es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports5.jpg",
+    availability: "en",
   },
   {
     id: "6",
@@ -129,27 +134,30 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://watchsports.to",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "High-quality streams in English.",
+      es: "Streams en alta calidad en inglés.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports6.jpg",
+    availability: "en",
   },
   {
     id: "7",
     title: {
-      en: "Bintv",
-      es: "Bintv",
+      en: "StreamSports99",
+      es: "StreamSports99",
     },
-    url: "https://www.bintv.net",
+    url: "https://streamsports99.ru",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "Check the channel guide to find which channel is broadcasting the event you want to watch.",
+      es: "Revisar el catálogo de canales para saber donde se transmite el evento deseado.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
+    featured: true,
     image: "/cards/sports7.jpg",
+    availability: "en-es",
   },
   {
     id: "8",
@@ -159,12 +167,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://watchfooty.st/en",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "High-quality streams in English.",
+      es: "Streams en alta calidad en inglés."
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports8.jpg",
+    availability: "en",
   },
   {
     id: "9",
@@ -174,12 +183,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://tv.moviebite.cc/",
     description: {
-      en: "High-quality sports streams from multiple countries.",
-      es: "Streams deportivos de alta calidad de varios países.",
+      en: "High-quality sports from multiple countries.",
+      es: "Streams en alta calidad de varios países.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports9.jpg",
+    availability: "en-es",
   },
   {
     id: "10",
@@ -189,12 +199,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://futbollibres.net",
     description: {
-      en: "High-quality sports streams, primarily in Spanish.",
-      es: "Streams deportivos de alta calidad, principalmente en español.",
+      en: "High-quality streams in Spanish.",
+      es: "Streams en alta calidad en español."
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports10.jpg",
+    availability: "es",
   },
   {
     id: "11",
@@ -204,12 +215,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://www.rojadirectatv3.pl",
     description: {
-      en: "High-quality sports streams, primarily in Spanish.",
-      es: "Streams deportivos de alta calidad, principalmente en español.",
+      en: "High-quality streams in Spanish.",
+      es: "Streams en alta calidad en español."
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports11.jpg",
+    availability: "es",
   },
   {
     id: "12",
@@ -219,12 +231,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://superstrim.pages.dev",
     description: {
-      en: "High-quality sports streams, primarily in English.",
-      es: "Streams deportivos de alta calidad, principalmente en inglés.",
+      en: "High-quality streams in English.",
+      es: "Streams en alta calidad en inglés.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports12.jpg",
+    availability: "en",
   },
   {
     id: "13",
@@ -234,12 +247,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://footstreams.xyz/",
     description: {
-      en: "High-quality sports streams, primarily in English.",
-      es: "Streams deportivos de alta calidad, principalmente en inglés.",
+      en: "High-quality streams in English.",
+      es: "Streams en alta calidad en inglés.",
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports13.jpg",
+    availability: "en",
   },
   {
     id: "14",
@@ -255,6 +269,7 @@ export const bookmarks: Bookmark[] = [
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports14.jpg",
+    availability: "en",
   },
   {
     id: "15",
@@ -264,12 +279,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://elitegol.lol/",
     description: {
-      en: "High-quality sports streams, primarily in Spanish.",
-      es: "Streams deportivos de alta calidad, principalmente en español.",
+      en: "High-quality streams in Spanish.",
+      es: "Streams en alta calidad en español."
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
     image: "/cards/sports15.jpg",
+    availability: "es",
   },
   {
     id: "16",
@@ -285,6 +301,7 @@ export const bookmarks: Bookmark[] = [
     category: "movies-tv-shows",
     tags: ["movies", "tv shows", "anime"],
     image: "/cards/movies1.jpg",
+    availability: "dub-sub",
   },
   {
     id: "17",
@@ -300,6 +317,7 @@ export const bookmarks: Bookmark[] = [
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
     image: "/cards/movies2.jpg",
+    availability: "sub",
   },
   {
     id: "31",

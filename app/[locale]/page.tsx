@@ -87,6 +87,7 @@ export default async function HomePage({
                             description={getLocalizedText(locale, bookmark.description)}
                             tags={bookmark.tags}
                             image={bookmark.image}
+                            availability={bookmark.availability}
                         />
                     ))}
                 </div>

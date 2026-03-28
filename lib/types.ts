@@ -3,6 +3,14 @@ export type LocalizedText = {
   es: string
 }
 
+export type Availability =
+    | "en"
+    | "es"
+    | "en-es"
+    | "sub"
+    | "dub"
+    | "dub-sub"
+
 export type Category = {
   slug: string
   name: LocalizedText
@@ -20,4 +28,5 @@ export type Bookmark = {
   tags: string[]
   featured?: boolean
   image?: string
+  availability?: Availability
 }
