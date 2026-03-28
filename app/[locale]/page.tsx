@@ -1,9 +1,19 @@
 import Image from "next/image"
-import { BookmarkCard } from "@/components/bookmark-card"
+import { getTranslations, setRequestLocale } from "next-intl/server"
 import { CategoryPill } from "@/components/category-pill"
+import { BookmarkCard } from "@/components/bookmark-card"
 import { categories, getFeaturedBookmarks } from "@/lib/data"
+import { getLocalizedText } from "@/lib/get-localized-text"
 
-export default function HomePage() {
+export default async function HomePage({
+                                           params,
+                                       }: {
+    params: Promise<{ locale: string }>
+}) {
+    const { locale } = await params
+    setRequestLocale(locale)
+
+    const t = await getTranslations("HomePage")
     const featured = getFeaturedBookmarks()
 
     return (
@@ -25,15 +35,15 @@ export default function HomePage() {
                         <div className="w-full px-4 pb-5 sm:px-6 sm:pb-0 md:px-8">
                             <div className="max-w-full sm:max-w-lg lg:max-w-xl">
                 <span className="inline-block rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white/85 backdrop-blur sm:text-xs">
-                  Digital Library
+                  {t("badge")}
                 </span>
 
-                                <h1 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
-                                    Collection of Free Resources
+                                <h1 className="font-heading mt-3 text-3xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
+                                    {t("title")}
                                 </h1>
 
                                 <p className="mt-3 text-sm leading-6 text-white/90 sm:mt-4 sm:text-base sm:leading-7">
-                                    A curated collection of the best free resources on the internet.
+                                    {t("description")}
                                 </p>
                             </div>
                         </div>
@@ -43,28 +53,41 @@ export default function HomePage() {
 
             <section className="mb-10 sm:mb-14">
                 <div className="mb-4 flex items-center justify-between sm:mb-5">
-                    <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
-                        Categories
+                    <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+                        {t("categories")}
                     </h2>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {categories.map((category) => (
-                        <CategoryPill key={category.slug} category={category} />
+                        <CategoryPill
+                            key={category.slug}
+                            slug={category.slug}
+                            name={getLocalizedText(locale, category.name)}
+                            description={getLocalizedText(locale, category.description)}
+                            image={category.image}
+                        />
                     ))}
                 </div>
             </section>
 
             <section>
                 <div className="mb-4 flex items-center justify-between sm:mb-5">
-                    <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
-                        Featured
+                    <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+                        {t("featured")}
                     </h2>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                     {featured.map((bookmark) => (
-                        <BookmarkCard key={bookmark.id} bookmark={bookmark} />
+                        <BookmarkCard
+                            key={bookmark.id}
+                            title={getLocalizedText(locale, bookmark.title)}
+                            url={bookmark.url}
+                            description={getLocalizedText(locale, bookmark.description)}
+                            tags={bookmark.tags}
+                            image={bookmark.image}
+                        />
                     ))}
                 </div>
             </section>

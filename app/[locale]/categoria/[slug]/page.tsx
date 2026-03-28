@@ -1,26 +1,38 @@
 import Image from "next/image"
-import Link from "next/link"
 import { notFound } from "next/navigation"
+import { getTranslations, setRequestLocale } from "next-intl/server"
+import { Link } from "@/i18n/navigation"
 import { BookmarkCard } from "@/components/bookmark-card"
 import { categories, getBookmarksByCategory, getCategoryBySlug } from "@/lib/data"
+import { routing } from "@/i18n/routing"
+import { getLocalizedText } from "@/lib/get-localized-text"
 
 export function generateStaticParams() {
-    return categories.map((category) => ({
-        slug: category.slug,
-    }))
+    return routing.locales.flatMap((locale) =>
+        categories.map((category) => ({
+            locale,
+            slug: category.slug,
+        }))
+    )
 }
 
 export default async function CategoryPage({
                                                params,
                                            }: {
-    params: Promise<{ slug: string }>
+    params: Promise<{ locale: string; slug: string }>
 }) {
-    const { slug } = await params
+    const { locale, slug } = await params
+    setRequestLocale(locale)
+
+    const t = await getTranslations("CategoryPage")
     const category = getCategoryBySlug(slug)
 
     if (!category) notFound()
 
     const items = getBookmarksByCategory(slug)
+
+    const categoryName = getLocalizedText(locale, category.name)
+    const categoryDescription = getLocalizedText(locale, category.description)
 
     return (
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:py-12">
@@ -28,7 +40,7 @@ export default async function CategoryPage({
                 href="/"
                 className="mb-6 inline-flex rounded-full border border-black/10 bg-white px-3 py-2 text-sm text-neutral-700 transition hover:bg-neutral-100"
             >
-                Back to home
+                {t("back")}
             </Link>
 
             <header className="mb-8 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
@@ -36,7 +48,7 @@ export default async function CategoryPage({
                     <div className="relative aspect-[4/5] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
                         <Image
                             src={category.bannerImage}
-                            alt={category.name}
+                            alt={categoryName}
                             fill
                             className="object-cover"
                             priority
@@ -51,7 +63,7 @@ export default async function CategoryPage({
                     className="rounded-full border border-white/10 bg-black/20 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm sm:text-xs"
                     style={{ textShadow: "0 1px 8px rgba(0,0,0,0.35)" }}
                 >
-                  Category
+                  {t("label")}
                 </span>
 
                                 <h1
@@ -59,7 +71,7 @@ export default async function CategoryPage({
                                     style={{ textShadow: "0 2px 12px rgba(0,0,0,0.45)" }}
                                 >
                   <span className="box-decoration-clone rounded-lg bg-black/18 px-2.5 py-1 backdrop-blur-sm">
-                    {category.name}
+                    {categoryName}
                   </span>
                                 </h1>
 
@@ -68,7 +80,7 @@ export default async function CategoryPage({
                                     style={{ textShadow: "0 1px 8px rgba(0,0,0,0.35)" }}
                                 >
                   <span className="box-decoration-clone rounded-lg bg-black/16 px-2.5 py-1.5 backdrop-blur-sm">
-                    {category.description}
+                    {categoryDescription}
                   </span>
                                 </p>
                             </div>
@@ -79,13 +91,13 @@ export default async function CategoryPage({
                 {!category.bannerImage && (
                     <div className="p-6 sm:p-8">
                         <p className="text-sm uppercase tracking-[0.14em] text-neutral-500">
-                            Category
+                            {t("label")}
                         </p>
                         <h1 className="font-heading mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
-                            {category.name}
+                            {categoryName}
                         </h1>
                         <p className="mt-3 max-w-2xl text-base leading-7 text-neutral-600">
-                            {category.description}
+                            {categoryDescription}
                         </p>
                     </div>
                 )}
@@ -93,7 +105,14 @@ export default async function CategoryPage({
 
             <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {items.map((bookmark) => (
-                    <BookmarkCard key={bookmark.id} bookmark={bookmark} />
+                    <BookmarkCard
+                        key={bookmark.id}
+                        title={getLocalizedText(locale, bookmark.title)}
+                        url={bookmark.url}
+                        description={getLocalizedText(locale, bookmark.description)}
+                        tags={bookmark.tags}
+                        image={bookmark.image}
+                    />
                 ))}
             </section>
         </div>

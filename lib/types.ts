@@ -1,16 +1,21 @@
+export type LocalizedText = {
+  en: string
+  es: string
+}
+
 export type Category = {
   slug: string
-  name: string
-  description: string
+  name: LocalizedText
+  description: LocalizedText
   bannerImage?: string
   image?: string
 }
 
 export type Bookmark = {
   id: string
-  title: string
+  title: LocalizedText
   url: string
-  description: string
+  description: LocalizedText
   category: string
   tags: string[]
   featured?: boolean

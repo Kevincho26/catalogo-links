@@ -1,0 +1,17 @@
+{
+  "Header": {
+    "brand": "Kevin's Collection",
+    "github": "GitHub"
+  },
+  "HomePage": {
+    "badge": "Biblioteca digital",
+    "title": "Colección de recursos gratis",
+    "description": "Compartiendo los mejores recursos gratuitos de internet.",
+    "categories": "Categorías",
+    "featured": "Destacados"
+  },
+  "CategoryPage": {
+    "back": "Volver al inicio",
+    "label": "Categoría"
+  }
+}
