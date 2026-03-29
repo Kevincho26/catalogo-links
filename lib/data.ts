@@ -543,6 +543,22 @@ export const bookmarks: Bookmark[] = [
     image: "/cards/anime1.jpg",
     availability: "dub-sub",
   },
+  {
+    id: "32",
+    title: {
+      en: "Animeav1",
+      es: "Animeav1",
+    },
+    url: "https://animeav1.com/",
+    description: {
+      en: "Dubbed and subtitled anime",
+      es: "Anime doblado y subtitulado",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime4.jpg",
+    availability: "sub",
+  },
 ]
 
 export function getCategoryBySlug(slug: string) {
