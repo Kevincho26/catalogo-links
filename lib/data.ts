@@ -290,6 +290,22 @@ export const bookmarks: Bookmark[] = [
   {
     id: "16",
     title: {
+      en: "Mappl",
+      es: "Mappl",
+    },
+    url: "https://mappl.tv",
+    description: {
+      en: "High-quality movie and TV streaming .",
+      es: "Peliculas y series de alta calidad de streaming.",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies1.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "17",
+    title: {
       en: "Cinemacity",
       es: "Cinemacity",
     },
@@ -300,11 +316,11 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies1.jpg",
+    image: "/cards/movies2.jpg",
     availability: "dub-sub",
   },
   {
-    id: "17",
+    id: "18",
     title: {
       en: "Showbox",
       es: "Showbox",
@@ -316,27 +332,27 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies2.jpg",
+    image: "/cards/movies3.jpg",
     availability: "sub",
   },
   {
-    id: "18",
+    id: "19",
     title: {
       en: "UniqueStream",
       es: "UniqueStream",
     },
     url: "https://uniquestream.net",
     description: {
-      en: "Movies and Tv shows, dubbed and subbed.",
-      es: "Peliculas y series dobladas y subtituladas.",
+      en: "Movies and Tv shows in English.",
+      es: "Peliculas y series en inglés ",
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies3.jpg",
-    availability: "dub-sub",
+    image: "/cards/movies4.jpg",
+    availability: "sub",
   },
   {
-    id: "19",
+    id: "20",
     title: {
       en: "Gnulahd.nu",
       es: "Gnulahd.nu",
@@ -348,11 +364,11 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies4.jpg",
+    image: "/cards/movies5.jpg",
     availability: "dub-sub",
   },
   {
-    id: "20",
+    id: "21",
     title: {
       en: "HdFull",
       es: "HdFull",
@@ -364,11 +380,11 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies5.jpg",
+    image: "/cards/movies6.jpg",
     availability: "dub-sub",
   },
   {
-    id: "21",
+    id: "22",
     title: {
       en: "MirandoGratis",
       es: "MirandoGratis",
@@ -380,11 +396,11 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies6.jpg",
+    image: "/cards/movies7.jpg",
     availability: "dub",
   },
   {
-    id: "22",
+    id: "23",
     title: {
       en: "Nepu",
       es: "Nepu",
@@ -396,11 +412,11 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies7.jpg",
+    image: "/cards/movies8.jpg",
     availability: "sub",
   },
   {
-    id: "23",
+    id: "24",
     title: {
       en: "1Moviesz",
       es: "1Moviesz",
@@ -412,11 +428,11 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies8.jpg",
+    image: "/cards/movies9.jpg",
     availability: "sub",
   },
   {
-    id: "24",
+    id: "25",
     title: {
       en: "La.movie",
       es: "La.movie",
@@ -428,8 +444,88 @@ export const bookmarks: Bookmark[] = [
     },
     category: "movies-tv-shows",
     tags: ["movies", "tv shows"],
-    image: "/cards/movies9.jpg",
+    image: "/cards/movies10.jpg",
     availability: "dub-sub",
+  },
+  {
+    id: "26",
+    title: {
+      en: "FMovies",
+      es: "FMovies",
+    },
+    url: "https://www.fmovies.gd/home",
+    description: {
+      en: "Movies and Tv shows in English",
+      es: "Peliculas y series en inglés",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies11.jpg",
+    availability: "sub",
+  },
+  {
+    id: "27",
+    title: {
+      en: "Flixzy",
+      es: "Flixzy",
+    },
+    url: "https://flixzy.pages.dev/",
+    description: {
+      en: "Movies and Tv shows in English",
+      es: "Peliculas y series en inglés",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies12.jpg",
+    availability: "sub",
+  },
+  {
+    id: "28",
+    title: {
+      en: "Peelink2",
+      es: "Peelink2",
+    },
+    url: "https://www.peelink2.com/",
+    description: {
+      en: "Movies and Tv shows in English",
+      es: "Peliculas y series en inglés",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies13.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "29",
+    title: {
+      en: "Xprime",
+      es: "Xprime",
+    },
+    url: "https://xprime.su/",
+    description: {
+      en: "Movies and Tv shows in English",
+      es: "Peliculas y series en inglés",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies14.jpg",
+    availability: "sub",
+  },
+  {
+    id: "30",
+    title: {
+      en: "CineCalidad",
+      es: "CineCalidad",
+    },
+    url: "https://www.cinecalidad.rs/",
+    description: {
+      en: "Movies and Tv shows in English",
+      es: "Peliculas y series en inglés",
+    },
+    category: "movies-tv-shows",
+    tags: ["movies", "tv shows"],
+    image: "/cards/movies15.jpg",
+    availability: "dub",
   },
   {
     id: "31",
@@ -439,11 +535,13 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://anime.uniquestream.net/",
     description: {
-      en: "Movies and Tv shows, dubbed and subbed.",
-      es: "Peliculas y series dobladas y subtituladas.",
+      en: "Dubbed and subtitled anime",
+      es: "Anime doblado y subtitulado",
     },
     category: "anime",
     tags: ["anime"],
+    image: "/cards/anime1.jpg",
+    availability: "dub-sub",
   },
 ]
 
