@@ -551,13 +551,61 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://animeav1.com/",
     description: {
+      en: "Sub anime",
+      es: "Anime subtitulado",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime2.jpg",
+    availability: "sub",
+  },
+  {
+    id: "33",
+    title: {
+      en: "Animerealms",
+      es: "Animerealms",
+    },
+    url: "https://www.animerealms.org/es",
+    description: {
       en: "Dubbed and subtitled anime",
       es: "Anime doblado y subtitulado",
     },
     category: "anime",
     tags: ["anime"],
+    image: "/cards/anime3.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "34",
+    title: {
+      en: "Animekai",
+      es: "Animekai",
+    },
+    url: "https://animekai.to/home",
+    description: {
+      en: "Sub anime",
+      es: "Anime subtitulado",
+    },
+    category: "anime",
+    tags: ["anime"],
     image: "/cards/anime4.jpg",
     availability: "sub",
+  },
+  {
+    id: "35",
+    title: {
+      en: "Animerealms",
+      es: "Animerealms",
+    },
+    url: "https://www.animerealms.org/es",
+    description: {
+      en: "Dubbed and subtitled anime",
+      es: "Anime doblado y subtitulado",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime5.jpg",
+    availability: "dub-sub",
   },
 ]
 
