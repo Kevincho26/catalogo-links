@@ -104,9 +104,10 @@ export default async function CategoryPage({
             </header>
 
             <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {items.map((bookmark) => (
+                {items.map((bookmark, index) => (
                     <BookmarkCard
                         key={bookmark.id}
+                        displayNumber={index + 1}
                         title={getLocalizedText(locale, bookmark.title)}
                         url={bookmark.url}
                         description={getLocalizedText(locale, bookmark.description)}

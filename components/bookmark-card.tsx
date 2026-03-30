@@ -2,6 +2,7 @@ import Image from "next/image"
 import { getAvailabilityBadge } from "@/lib/get-availability-badge"
 
 export function BookmarkCard({
+                                 displayNumber,
                                  title,
                                  url,
                                  description,
@@ -9,6 +10,7 @@ export function BookmarkCard({
                                  image,
                                  availability,
                              }: {
+    displayNumber: number
     title: string
     url: string
     description: string
@@ -41,16 +43,29 @@ export function BookmarkCard({
                     />
 
                     {badge && (
-                        <div className="absolute right-1.5 top-1.5 z-10 sm:right-2 sm:top-2">
-              <span
-                  className={[
-                      "inline-flex rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
-                      badge.badgeClass,
-                  ].join(" ")}
-              >
-                {badge.label}
-              </span>
-                        </div>
+                        <>
+                            <div className="absolute left-1.5 top-1.5 z-10 sm:left-2 sm:top-2">
+                <span
+                    className={[
+                        "inline-flex min-w-[2.25rem] items-center justify-center rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                        badge.badgeClass,
+                    ].join(" ")}
+                >
+                  {displayNumber}
+                </span>
+                            </div>
+
+                            <div className="absolute right-1.5 top-1.5 z-10 sm:right-2 sm:top-2">
+                <span
+                    className={[
+                        "inline-flex rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                        badge.badgeClass,
+                    ].join(" ")}
+                >
+                  {badge.label}
+                </span>
+                            </div>
+                        </>
                     )}
                 </div>
             )}
@@ -67,14 +82,25 @@ export function BookmarkCard({
                     </div>
 
                     {!image && badge && (
-                        <span
-                            className={[
-                                "inline-flex shrink-0 rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
-                                badge.badgeClass,
-                            ].join(" ")}
-                        >
-              {badge.label}
-            </span>
+                        <div className="flex items-center gap-2">
+              <span
+                  className={[
+                      "inline-flex min-w-[2.25rem] items-center justify-center rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                      badge.badgeClass,
+                  ].join(" ")}
+              >
+                {displayNumber}
+              </span>
+
+                            <span
+                                className={[
+                                    "inline-flex shrink-0 rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                                    badge.badgeClass,
+                                ].join(" ")}
+                            >
+                {badge.label}
+              </span>
+                        </div>
                     )}
                 </div>
 
