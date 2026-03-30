@@ -594,10 +594,10 @@ export const bookmarks: Bookmark[] = [
   {
     id: "35",
     title: {
-      en: "Animerealms",
-      es: "Animerealms",
+      en: "Animepache",
+      es: "Animepache",
     },
-    url: "https://www.animerealms.org/es",
+    url: "https://animepahe.si/",
     description: {
       en: "Dubbed and subtitled anime",
       es: "Anime doblado y subtitulado",
@@ -605,6 +605,166 @@ export const bookmarks: Bookmark[] = [
     category: "anime",
     tags: ["anime"],
     image: "/cards/anime5.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "36",
+    title: {
+      en: "AnimewatchTv",
+      es: "AnimewatchTv",
+    },
+    url: "https://aniwatchtv.to/",
+    description: {
+      en: "Dubbed and subtitled anime, only English dub",
+      es: "Anime doblado y subtitulado, solo doblado en inglés",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime6.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "37",
+    title: {
+      en: "Latanime",
+      es: "Latanime",
+    },
+    url: "https://latanime.org/",
+    description: {
+      en: "Dubbed anime in Spanish",
+      es: "Anime doblado en Español",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime7.jpg",
+    availability: "dub",
+  },
+  {
+    id: "38",
+    title: {
+      en: "Animeonline.ninja",
+      es: "Animeonline.ninja",
+    },
+    url: "https://ww3.animeonline.ninja/inicio/",
+    description: {
+      en: "Dubbed and subtitled anime, only English dub",
+      es: "Anime doblado y subtitulado, solo doblado en inglés",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime8.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "39",
+    title: {
+      en: "Allmanga",
+      es: "Allmanga",
+    },
+    url: "https://allmanga.to/",
+    description: {
+      en: "Dubbed and subtitled anime, only English dub",
+      es: "Anime doblado y subtitulado, solo doblado en inglés",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime9.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "40",
+    title: {
+      en: "Anizone",
+      es: "Anizone",
+    },
+    url: "https://anizone.to/",
+    description: {
+      en: "Dubbed and subtitled anime, only English dub",
+      es: "Anime doblado y subtitulado, solo doblado en inglés",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime10.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "41",
+    title: {
+      en: "Kuudere",
+      es: "Kuudere",
+    },
+    url: "https://kuudere.ru/",
+    description: {
+      en: "Dubbed and subtitled anime",
+      es: "Anime doblado y subtitulado",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime11.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "42",
+    title: {
+      en: "Anicrush",
+      es: "Anicrush",
+    },
+    url: "https://anicrush.to/",
+    description: {
+      en: "Dubbed and subtitled anime",
+      es: "Anime doblado y subtitulado",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime12.jpg",
+    availability: "dub-sub",
+  },
+  {
+    id: "43",
+    title: {
+      en: "SoloLatino",
+      es: "SoloLatino",
+    },
+    url: "https://sololatino.net/animes",
+    description: {
+      en: "Dubbed anime in Spanish",
+      es: "Anime doblado en Español",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime13.jpg",
+    availability: "dub",
+  },
+  {
+    id: "44",
+    title: {
+      en: "Jkanime",
+      es: "Jkanime",
+    },
+    url: "https://jkanime.net/",
+    description: {
+      en: "Sub anime in Spanish",
+      es: "Anime subtitulado en Español",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime14.jpg",
+    availability: "sub",
+  },
+  {
+    id: "45",
+    title: {
+      en: "Jkanimeflv",
+      es: "Jkanimeflv",
+    },
+    url: "https://jkanimeflv.com/",
+    description: {
+      en: "Dubbed and subtitled anime",
+      es: "Anime doblado y subtitulado",
+    },
+    category: "anime",
+    tags: ["anime"],
+    image: "/cards/anime15.jpg",
     availability: "dub-sub",
   },
 ]
