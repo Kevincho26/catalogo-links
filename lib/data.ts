@@ -155,7 +155,6 @@ export const bookmarks: Bookmark[] = [
     },
     category: "sports",
     tags: ["football", "basketball", "tennis", "racing"],
-    featured: true,
     image: "/cards/sports7.jpg",
     availability: "en-es",
   },
@@ -302,7 +301,7 @@ export const bookmarks: Bookmark[] = [
     tags: ["movies", "tv shows"],
     image: "/cards/movies1.jpg",
     availability: "dub-sub",
-  },
+    },
   {
     id: "17",
     title: {
@@ -318,6 +317,7 @@ export const bookmarks: Bookmark[] = [
     tags: ["movies", "tv shows"],
     image: "/cards/movies2.jpg",
     availability: "dub-sub",
+    featured: true,
   },
   {
     id: "18",
@@ -334,6 +334,7 @@ export const bookmarks: Bookmark[] = [
     tags: ["movies", "tv shows"],
     image: "/cards/movies3.jpg",
     availability: "sub",
+    featured: true,
   },
   {
     id: "19",
@@ -366,6 +367,7 @@ export const bookmarks: Bookmark[] = [
     tags: ["movies", "tv shows"],
     image: "/cards/movies5.jpg",
     availability: "dub-sub",
+    featured: true,
   },
   {
     id: "21",
@@ -542,6 +544,7 @@ export const bookmarks: Bookmark[] = [
     tags: ["anime"],
     image: "/cards/anime1.jpg",
     availability: "dub-sub",
+    featured: true,
   },
   {
     id: "32",
@@ -558,6 +561,7 @@ export const bookmarks: Bookmark[] = [
     tags: ["anime"],
     image: "/cards/anime2.jpg",
     availability: "sub",
+    featured: true,
   },
   {
     id: "33",
@@ -734,6 +738,7 @@ export const bookmarks: Bookmark[] = [
     tags: ["anime"],
     image: "/cards/anime13.jpg",
     availability: "dub",
+    featured: true,
   },
   {
     id: "44",
