@@ -50,32 +50,28 @@ export function BookmarkCard({
                 aria-label={`Open ${title}`}
                 className={resourceCardClass}
             >
-                <div className="flex h-[140px] items-stretch sm:h-[152px] md:h-[164px]">
+                <div className="grid h-[140px] grid-cols-[220px_1fr] items-stretch sm:h-[150px] sm:grid-cols-[240px_1fr] xl:h-[168px] xl:grid-cols-[300px_1fr]">
                     {image && (
-                        <div className="relative h-full aspect-video shrink-0 overflow-hidden border-r border-black/10">
+                        <div className="relative h-full overflow-hidden border-r border-black/10">
                             <Image
                                 src={image}
                                 alt={title}
                                 fill
                                 className="object-cover transition duration-300 group-hover:scale-[1.02]"
-                                sizes="(min-width: 768px) 292px, (min-width: 640px) 270px, 249px"
+                                sizes="(min-width: 1280px) 300px, (min-width: 640px) 240px, 220px"
                             />
                         </div>
                     )}
 
-                    <div className="flex flex-1 items-center p-5 sm:p-6">
-                        <div>
-                            <p className="text-[11px] font-medium tracking-[0.04em] text-sky-700 sm:text-xs">
+                    <div className="flex items-center p-5 sm:p-6">
+                        <div className="min-w-0">
+                            <p className="truncate text-[11px] font-medium tracking-[0.04em] text-sky-700 sm:text-xs">
                                 {hostname}
                             </p>
 
-                            <h3 className="mt-2 text-[1.2rem] font-semibold leading-[1.15] tracking-[-0.02em] text-slate-950 sm:text-[1.35rem]">
+                            <h3 className="mt-2 pr-2 text-[1.08rem] font-semibold leading-[1.24] tracking-[-0.018em] text-slate-950 sm:text-[1.14rem] xl:text-[1.22rem]">
                                 {title}
                             </h3>
-
-                            <p className="mt-2.5 max-w-[62ch] text-sm leading-6 text-slate-600 sm:text-[15px]">
-                                {description}
-                            </p>
                         </div>
                     </div>
                 </div>

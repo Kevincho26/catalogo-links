@@ -562,6 +562,70 @@ export const bookmarks: Bookmark[] = [
     availability: "dub",
   },
   {
+    id: "anime-schedule",
+    title: {
+      en: "Anime Schedule",
+      es: "Calendario de Anime",
+    },
+    url: "https://www.livechart.me/schedule",
+    description: {
+      en: "Track weekly anime releases and upcoming episodes.",
+      es: "Consulta los estrenos semanales de anime y los próximos episodios.",
+    },
+    category: "anime",
+    tags: [],
+    image: "/cards/calendar_anime.jpg",
+    cardVariant: "resource",
+  },
+  {
+    id: "anime-order",
+    title: {
+      en: "Watch Order",
+      es: "Orden para Ver",
+    },
+    url: "https://chiaki.site/",
+    description: {
+      en: "Check anime watch order, sequels, prequels and related entries.",
+      es: "Consulta el orden para ver anime, secuelas, precuelas y obras relacionadas.",
+    },
+    category: "anime",
+    tags: [],
+    image: "/cards/orden_anime.jpg",
+    cardVariant: "resource",
+  },
+  {
+    id: "anime-dub",
+    title: {
+      en: "Dub List",
+      es: "Lista de Doblaje",
+    },
+    url: "https://mydublist.com/",
+    description: {
+      en: "Find out whether an anime has an English dub available.",
+      es: "Comprueba si un anime tiene doblaje disponible en inglés.",
+    },
+    category: "anime",
+    tags: [],
+    image: "/cards/dub_anime.jpg",
+    cardVariant: "resource",
+  },
+  {
+    id: "anime-master-list",
+    title: {
+      en: "Anime Rankings",
+      es: "Rankings de Anime",
+    },
+    url: "https://tiermaker.com/list/anime/anime-tierlist-2025-18848714/5690276",
+    description: {
+      en: "Browse curated rankings and personal anime recommendation lists.",
+      es: "Explora rankings curados y listas personales de recomendaciones de anime.",
+    },
+    category: "anime",
+    tags: [],
+    image: "/cards/master_anime.jpg",
+    cardVariant: "resource",
+  },
+  {
     id: "31",
     title: {
       en: "Uniquestream",

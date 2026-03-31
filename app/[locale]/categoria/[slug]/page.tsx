@@ -3,10 +3,10 @@ import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 
 import { Link } from "@/i18n/navigation"
-import { BookmarkCard } from "@/components/bookmark-card"
 import { categories, getBookmarksByCategory, getCategoryBySlug } from "@/lib/data"
 import { routing } from "@/i18n/routing"
 import { getLocalizedText } from "@/lib/get-localized-text"
+import { CategoryBookmarksSection } from "@/components/category-bookmarks-section"
 
 export function generateStaticParams() {
     return routing.locales.flatMap((locale) =>
@@ -31,18 +31,41 @@ export default async function CategoryPage({
     if (!category) notFound()
 
     const items = getBookmarksByCategory(slug)
-    const resourceItems = items.filter((bookmark) => bookmark.cardVariant === "resource")
-    const regularItems = items.filter((bookmark) => bookmark.cardVariant !== "resource")
+
+    const resourceItems = items
+        .filter((bookmark) => bookmark.cardVariant === "resource")
+        .map((bookmark) => ({
+            id: bookmark.id,
+            title: getLocalizedText(locale, bookmark.title),
+            url: bookmark.url,
+            description: getLocalizedText(locale, bookmark.description),
+            tags: bookmark.tags ?? [],
+            image: bookmark.image,
+            availability: bookmark.availability,
+            cardVariant: bookmark.cardVariant,
+        }))
+
+    const regularItems = items
+        .filter((bookmark) => bookmark.cardVariant !== "resource")
+        .map((bookmark) => ({
+            id: bookmark.id,
+            title: getLocalizedText(locale, bookmark.title),
+            url: bookmark.url,
+            description: getLocalizedText(locale, bookmark.description),
+            tags: bookmark.tags ?? [],
+            image: bookmark.image,
+            availability: bookmark.availability,
+            cardVariant: bookmark.cardVariant,
+        }))
 
     const categoryName = getLocalizedText(locale, category.name)
     const categoryDescription = getLocalizedText(locale, category.description)
 
-    const linksEyebrow = locale === "es" ? "Catálogo" : "Catalog"
+    const resourceTitle = locale === "es" ? "Recursos" : "Resources"
     const linksTitle = locale === "es" ? "Links" : "Links"
-    const linksDescription =
-        locale === "es"
-            ? "Enlaces principales de esta categoría."
-            : "Main links in this category."
+    const showMoreLabel =
+        locale === "es" ? "Mostrar más recursos" : "Show more resources"
+    const showLessLabel = locale === "es" ? "Mostrar menos" : "Show less"
 
     return (
         <main className="container-shell py-8 sm:py-10 lg:py-12">
@@ -86,9 +109,11 @@ export default async function CategoryPage({
                 ) : (
                     <div className="p-6 sm:p-8">
                         <p className="eyebrow">{t("label")}</p>
+
                         <h1 className="mt-2 text-[2rem] font-bold leading-[1.04] tracking-[-0.03em] text-slate-950 sm:text-[2.6rem]">
                             {categoryName}
                         </h1>
+
                         <p className="mt-3 max-w-[62ch] text-base leading-8 text-slate-600">
                             {categoryDescription}
                         </p>
@@ -96,58 +121,14 @@ export default async function CategoryPage({
                 )}
             </header>
 
-            {resourceItems.length > 0 && (
-                <section className="mx-auto max-w-4xl space-y-4">
-                    {resourceItems.map((bookmark) => (
-                        <BookmarkCard
-                            key={bookmark.id}
-                            title={getLocalizedText(locale, bookmark.title)}
-                            url={bookmark.url}
-                            description={getLocalizedText(locale, bookmark.description)}
-                            tags={bookmark.tags ?? []}
-                            image={bookmark.image}
-                            availability={bookmark.availability}
-                            cardVariant={bookmark.cardVariant}
-                        />
-                    ))}
-                </section>
-            )}
-
-            {resourceItems.length > 0 && regularItems.length > 0 && (
-                <div className="my-9 sm:my-10">
-                    <div className="flex items-center gap-4 sm:gap-6">
-                        <div className="section-divider flex-1" />
-
-                        <div className="shrink-0 text-center">
-                            <p className="eyebrow">{linksEyebrow}</p>
-                            <h2 className="mt-1 text-[1.65rem] font-semibold tracking-[-0.02em] text-slate-950 sm:text-[2rem]">
-                                {linksTitle}
-                            </h2>
-                            <p className="mt-1 text-sm leading-6 text-slate-600">
-                                {linksDescription}
-                            </p>
-                        </div>
-
-                        <div className="section-divider flex-1" />
-                    </div>
-                </div>
-            )}
-
-            <section className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-                {regularItems.map((bookmark, index) => (
-                    <BookmarkCard
-                        key={bookmark.id}
-                        displayNumber={index + 1}
-                        title={getLocalizedText(locale, bookmark.title)}
-                        url={bookmark.url}
-                        description={getLocalizedText(locale, bookmark.description)}
-                        tags={bookmark.tags ?? []}
-                        image={bookmark.image}
-                        availability={bookmark.availability}
-                        cardVariant={bookmark.cardVariant}
-                    />
-                ))}
-            </section>
+            <CategoryBookmarksSection
+                resourceTitle={resourceTitle}
+                linksTitle={linksTitle}
+                showMoreLabel={showMoreLabel}
+                showLessLabel={showLessLabel}
+                resources={resourceItems}
+                bookmarks={regularItems}
+            />
         </main>
     )
 }
