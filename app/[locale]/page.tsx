@@ -1,9 +1,14 @@
 import Image from "next/image"
 import { getTranslations, setRequestLocale } from "next-intl/server"
-import { CategoryPill } from "@/components/category-pill"
-import { BookmarkCard } from "@/components/bookmark-card"
-import { categories, getFeaturedBookmarks } from "@/lib/data"
+
+import { categories } from "@/lib/data"
 import { getLocalizedText } from "@/lib/get-localized-text"
+import { CategoryPill } from "@/components/category-pill"
+import { routing } from "@/i18n/routing"
+
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }))
+}
 
 export default async function HomePage({
                                            params,
@@ -14,85 +19,69 @@ export default async function HomePage({
     setRequestLocale(locale)
 
     const t = await getTranslations("HomePage")
-    const featured = getFeaturedBookmarks()
 
     return (
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:py-12">
-            <section className="mb-10 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm sm:mb-12 sm:rounded-3xl">
-                <div className="relative aspect-[4/5] w-full sm:aspect-[16/8] lg:aspect-[21/6]">
-                    <Image
-                        src="/heroes/home-banner.jpg"
-                        alt="Home banner"
-                        fill
-                        priority
-                        className="object-cover object-center sm:object-[70%_center]"
-                        sizes="100vw"
-                    />
+        <main className="pb-12 sm:pb-16">
+            <section className="container-shell pt-8 sm:pt-10 lg:pt-12">
+                <div className="surface-card overflow-hidden rounded-[32px]">
+                    <div className="relative aspect-[4/5] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
+                        <Image
+                            src="/heroes/home-banner.jpg"
+                            alt={t("title")}
+                            fill
+                            priority
+                            className="object-cover"
+                            sizes="100vw"
+                        />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/15 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/45 sm:to-black/10" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/48 to-black/14" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/34 via-transparent to-transparent" />
 
-                    <div className="absolute inset-0 flex items-end sm:items-center">
-                        <div className="w-full px-4 pb-5 sm:px-6 sm:pb-0 md:px-8">
-                            <div className="max-w-full sm:max-w-lg lg:max-w-xl">
-                <span className="inline-block rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white/85 backdrop-blur sm:text-xs">
-                  {t("badge")}
+                        <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 md:p-10 lg:p-12">
+                            <div className="max-w-[520px] lg:max-w-[560px]">
+                <span className="inline-flex rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 backdrop-blur-sm sm:text-xs">
+                  {t("eyebrow")}
                 </span>
 
-                                <h1 className="font-heading mt-3 text-3xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
+                                <h1
+                                    className="mt-4 text-[2.4rem] font-bold leading-[0.98] tracking-[-0.04em] text-white sm:text-[3.2rem] lg:text-[4rem]"
+                                    style={{ textShadow: "0 2px 12px rgba(0,0,0,0.28)" }}
+                                >
                                     {t("title")}
                                 </h1>
-
-                                <p className="mt-3 text-sm leading-6 text-white/90 sm:mt-4 sm:text-base sm:leading-7">
-                                    {t("description")}
-                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="mb-10 sm:mb-14">
-                <div className="mb-4 flex items-center justify-between sm:mb-5">
-                    <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-                        {t("categories")}
-                    </h2>
+            <section className="container-shell mt-10 sm:mt-12">
+                <div className="mb-6 sm:mb-8">
+                    <div className="flex items-center gap-4 sm:gap-6">
+                        <div className="section-divider flex-1" />
+
+                        <div className="shrink-0 text-center">
+                            <h2 className="text-[1.8rem] font-semibold tracking-[-0.02em] text-slate-950 sm:text-[2.2rem]">
+                                {t("categoriesTitle")}
+                            </h2>
+                        </div>
+
+                        <div className="section-divider flex-1" />
+                    </div>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                     {categories.map((category) => (
                         <CategoryPill
                             key={category.slug}
-                            slug={category.slug}
-                            name={getLocalizedText(locale, category.name)}
+                            href={`/categoria/${category.slug}`}
+                            title={getLocalizedText(locale, category.name)}
                             description={getLocalizedText(locale, category.description)}
                             image={category.image}
                         />
                     ))}
                 </div>
             </section>
-
-            <section>
-                <div className="mb-4 flex items-center justify-between sm:mb-5">
-                    <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-                        {t("featured")}
-                    </h2>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                    {featured.map((bookmark, index) => (
-                        <BookmarkCard
-                            key={bookmark.id}
-                            displayNumber={index + 1}
-                            title={getLocalizedText(locale, bookmark.title)}
-                            url={bookmark.url}
-                            description={getLocalizedText(locale, bookmark.description)}
-                            tags={bookmark.tags}
-                            image={bookmark.image}
-                            availability={bookmark.availability}
-                        />
-                    ))}
-                </div>
-            </section>
-        </div>
+        </main>
     )
 }

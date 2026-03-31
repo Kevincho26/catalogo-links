@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
+
 import { Link } from "@/i18n/navigation"
 import { BookmarkCard } from "@/components/bookmark-card"
 import { categories, getBookmarksByCategory, getCategoryBySlug } from "@/lib/data"
@@ -12,7 +13,7 @@ export function generateStaticParams() {
         categories.map((category) => ({
             locale,
             slug: category.slug,
-        }))
+        })),
     )
 }
 
@@ -30,21 +31,30 @@ export default async function CategoryPage({
     if (!category) notFound()
 
     const items = getBookmarksByCategory(slug)
+    const resourceItems = items.filter((bookmark) => bookmark.cardVariant === "resource")
+    const regularItems = items.filter((bookmark) => bookmark.cardVariant !== "resource")
 
     const categoryName = getLocalizedText(locale, category.name)
     const categoryDescription = getLocalizedText(locale, category.description)
 
+    const linksEyebrow = locale === "es" ? "Catálogo" : "Catalog"
+    const linksTitle = locale === "es" ? "Links" : "Links"
+    const linksDescription =
+        locale === "es"
+            ? "Enlaces principales de esta categoría."
+            : "Main links in this category."
+
     return (
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:py-12">
+        <main className="container-shell py-8 sm:py-10 lg:py-12">
             <Link
                 href="/"
-                className="mb-6 inline-flex rounded-full border border-black/10 bg-white px-3 py-2 text-sm text-neutral-700 transition hover:bg-neutral-100"
+                className="mb-6 inline-flex rounded-full border border-black/10 bg-white px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
             >
                 {t("back")}
             </Link>
 
-            <header className="mb-8 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
-                {category.bannerImage && (
+            <header className="surface-card mb-8 overflow-hidden rounded-[32px]">
+                {category.bannerImage ? (
                     <div className="relative aspect-[4/5] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
                         <Image
                             src={category.bannerImage}
@@ -55,68 +65,89 @@ export default async function CategoryPage({
                             sizes="100vw"
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/28 to-black/8" />
 
-                        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8">
-                            <div className="flex max-w-xl flex-col items-start gap-2">
-                <span
-                    className="rounded-full border border-white/10 bg-black/20 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm sm:text-xs"
-                    style={{ textShadow: "0 1px 8px rgba(0,0,0,0.35)" }}
-                >
-                  {t("label")}
-                </span>
+                        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 md:p-8">
+                            <div className="max-w-2xl">
+                                <p className="text-[11px] font-medium tracking-[0.08em] text-sky-200 sm:text-xs">
+                                    {t("label")}
+                                </p>
 
-                                <h1
-                                    className="font-heading text-3xl font-semibold tracking-tight text-white md:text-5xl"
-                                    style={{ textShadow: "0 2px 12px rgba(0,0,0,0.45)" }}
-                                >
-                  <span className="box-decoration-clone rounded-lg bg-black/18 px-2.5 py-1 backdrop-blur-sm">
-                    {categoryName}
-                  </span>
+                                <h1 className="mt-2 text-[2.2rem] font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-[3rem]">
+                                    {categoryName}
                                 </h1>
 
-                                <p
-                                    className="max-w-lg text-sm leading-7 text-white/90 md:text-base"
-                                    style={{ textShadow: "0 1px 8px rgba(0,0,0,0.35)" }}
-                                >
-                  <span className="box-decoration-clone rounded-lg bg-black/16 px-2.5 py-1.5 backdrop-blur-sm">
-                    {categoryDescription}
-                  </span>
+                                <p className="mt-3 max-w-[62ch] text-sm leading-7 text-white/88 sm:text-base">
+                                    {categoryDescription}
                                 </p>
                             </div>
                         </div>
                     </div>
-                )}
-
-                {!category.bannerImage && (
+                ) : (
                     <div className="p-6 sm:p-8">
-                        <p className="text-sm uppercase tracking-[0.14em] text-neutral-500">
-                            {t("label")}
-                        </p>
-                        <h1 className="font-heading mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
+                        <p className="eyebrow">{t("label")}</p>
+                        <h1 className="mt-2 text-[2rem] font-bold leading-[1.04] tracking-[-0.03em] text-slate-950 sm:text-[2.6rem]">
                             {categoryName}
                         </h1>
-                        <p className="mt-3 max-w-2xl text-base leading-7 text-neutral-600">
+                        <p className="mt-3 max-w-[62ch] text-base leading-8 text-slate-600">
                             {categoryDescription}
                         </p>
                     </div>
                 )}
             </header>
 
-            <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {items.map((bookmark, index) => (
+            {resourceItems.length > 0 && (
+                <section className="mx-auto max-w-4xl space-y-4">
+                    {resourceItems.map((bookmark) => (
+                        <BookmarkCard
+                            key={bookmark.id}
+                            title={getLocalizedText(locale, bookmark.title)}
+                            url={bookmark.url}
+                            description={getLocalizedText(locale, bookmark.description)}
+                            tags={bookmark.tags ?? []}
+                            image={bookmark.image}
+                            availability={bookmark.availability}
+                            cardVariant={bookmark.cardVariant}
+                        />
+                    ))}
+                </section>
+            )}
+
+            {resourceItems.length > 0 && regularItems.length > 0 && (
+                <div className="my-9 sm:my-10">
+                    <div className="flex items-center gap-4 sm:gap-6">
+                        <div className="section-divider flex-1" />
+
+                        <div className="shrink-0 text-center">
+                            <p className="eyebrow">{linksEyebrow}</p>
+                            <h2 className="mt-1 text-[1.65rem] font-semibold tracking-[-0.02em] text-slate-950 sm:text-[2rem]">
+                                {linksTitle}
+                            </h2>
+                            <p className="mt-1 text-sm leading-6 text-slate-600">
+                                {linksDescription}
+                            </p>
+                        </div>
+
+                        <div className="section-divider flex-1" />
+                    </div>
+                </div>
+            )}
+
+            <section className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                {regularItems.map((bookmark, index) => (
                     <BookmarkCard
                         key={bookmark.id}
                         displayNumber={index + 1}
                         title={getLocalizedText(locale, bookmark.title)}
                         url={bookmark.url}
                         description={getLocalizedText(locale, bookmark.description)}
-                        tags={bookmark.tags}
+                        tags={bookmark.tags ?? []}
                         image={bookmark.image}
                         availability={bookmark.availability}
+                        cardVariant={bookmark.cardVariant}
                     />
                 ))}
             </section>
-        </div>
+        </main>
     )
 }

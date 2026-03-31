@@ -11,6 +11,8 @@ export type Availability =
     | "dub"
     | "dub-sub"
 
+export type BookmarkCardVariant = "default" | "resource"
+
 export type Category = {
   slug: string
   name: LocalizedText
@@ -29,4 +31,5 @@ export type Bookmark = {
   featured?: boolean
   image?: string
   availability?: Availability
+  cardVariant?: BookmarkCardVariant
 }

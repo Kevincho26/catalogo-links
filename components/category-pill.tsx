@@ -1,40 +1,45 @@
 import Image from "next/image"
-import {Link} from "@/i18n/navigation"
 
-export function CategoryPill({
-                                 slug,
-                                 name,
-                                 description,
-                                 image,
-                             }: {
-    slug: string
-    name: string
+import { Link } from "@/i18n/navigation"
+
+type CategoryPillProps = {
+    href: string
+    title: string
     description: string
     image?: string
-}) {
+}
+
+export function CategoryPill({
+                                 href,
+                                 title,
+                                 description,
+                                 image,
+                             }: CategoryPillProps) {
     return (
         <Link
-            href={`/categoria/${slug}`}
-            className="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            href={href}
+            className="surface-card surface-card-hover group block overflow-hidden rounded-[24px]"
         >
-            {image && (
-                <div className="relative aspect-[16/10] w-full sm:aspect-[16/9]">
+            <div className="relative aspect-[16/10] w-full sm:aspect-[16/9]">
+                {image ? (
                     <Image
                         src={image}
-                        alt={name}
+                        alt={title}
                         fill
                         className="object-cover transition duration-300 group-hover:scale-[1.02]"
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
                     />
-                    <div className="absolute inset-0 bg-black/20" />
-                </div>
-            )}
+                ) : (
+                    <div className="h-full w-full bg-slate-100" />
+                )}
+            </div>
 
-            <div className="p-4 sm:p-5">
-                <div className="mb-2 font-heading text-base font-semibold text-neutral-900 group-hover:text-black">
-                    {name}
-                </div>
-                <p className="text-sm leading-6 text-neutral-600">{description}</p>
+            <div className="p-5 sm:p-6">
+                <p className="eyebrow">Category</p>
+                <h3 className="mt-2 text-[1.2rem] font-semibold tracking-[-0.018em] text-slate-950">
+                    {title}
+                </h3>
+                <p className="mt-2 body-copy-tight">{description}</p>
             </div>
         </Link>
     )

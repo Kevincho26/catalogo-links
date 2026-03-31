@@ -1,17 +1,18 @@
 {
   "Header": {
-    "brand": "Kevin's Collection",
-    "github": "GitHub"
+    "eyebrow": "Visual catalog",
+    "title": "Link Library"
   },
   "HomePage": {
-    "badge": "Digital Library",
-    "title": "Collection of Free Resources",
-    "description": "Sharing the best free resources on the internet.",
-    "categories": "Categories",
-    "featured": "Featured"
+    "eyebrow": "Digital library",
+    "title": "Free resources",
+    "description": "Explore curated categories, discover useful resources, and open each link from a simple, bilingual and responsive library.",
+    "categoriesEyebrow": "Browse",
+    "categoriesTitle": "Categories",
+    "categoriesDescription": "Choose a section to explore curated links, useful resources and featured entries."
   },
   "CategoryPage": {
-    "back": "Back to home",
+    "back": "Back",
     "label": "Category"
   }
 }

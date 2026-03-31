@@ -44,6 +44,38 @@ export const categories: Category[] = [
 
 export const bookmarks: Bookmark[] = [
   {
+    id: "sports-schedule",
+    title: {
+      en: "Football Match Schedule",
+      es: "Calendario de Partidos de Fútbol",
+    },
+    url: "https://www.livesoccertv.com/es/",
+    description: {
+      en: "Fixtures, kick-off times and official broadcast listings channels.",
+      es: "Partidos, horarios y listado de canales de emisión.",
+    },
+    category: "sports",
+    tags: [],
+    image: "/cards/calendar_sports.jpg",
+    cardVariant: "resource",
+  },
+  {
+    id: "sports-highlights-replays",
+    title: {
+      en: "Highlights and Full Match Replays ",
+      es: "Highlights y replays de partidos completos",
+    },
+    url: "https://fullmatchshows.com/",
+    description: {
+      en: "Official highlights and selected replays from UEFA competitions.",
+      es: "Highlights oficiales y repeticiones seleccionadas de competiciones UEFA.",
+    },
+    category: "sports",
+    tags: [],
+    image: "/cards/replay_sports.jpg",
+    cardVariant: "resource",
+  },
+  {
     id: "1",
     title: {
       en: "FCTV33",
@@ -554,8 +586,8 @@ export const bookmarks: Bookmark[] = [
     },
     url: "https://animeav1.com/",
     description: {
-      en: "Sub anime",
-      es: "Anime subtitulado",
+      en: "Dubbed and subtitled anime",
+      es: "Anime doblado y subtitulado",
     },
     category: "anime",
     tags: ["anime"],

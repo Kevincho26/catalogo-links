@@ -1,25 +1,87 @@
 import Image from "next/image"
+
 import { getAvailabilityBadge } from "@/lib/get-availability-badge"
+import type { Availability, BookmarkCardVariant } from "@/lib/types"
+
+type BookmarkCardProps = {
+    displayNumber?: number
+    title: string
+    url: string
+    description: string
+    tags?: string[]
+    image?: string
+    availability?: Availability
+    cardVariant?: BookmarkCardVariant
+}
+
+function getHostname(url: string) {
+    try {
+        return new URL(url).hostname.replace("www.", "").toLowerCase()
+    } catch {
+        return url.toLowerCase()
+    }
+}
+
+const defaultCardClass =
+    "surface-card surface-card-hover group block overflow-hidden rounded-[24px] focus:outline-none focus:ring-2 focus:ring-black/10"
+
+const resourceCardClass =
+    "surface-card surface-card-hover group block overflow-hidden rounded-none focus:outline-none focus:ring-2 focus:ring-black/10"
 
 export function BookmarkCard({
                                  displayNumber,
                                  title,
                                  url,
                                  description,
-                                 tags,
+                                 tags = [],
                                  image,
                                  availability,
-                             }: {
-    displayNumber: number
-    title: string
-    url: string
-    description: string
-    tags: string[]
-    image?: string
-    availability?: "en" | "es" | "en-es" | "sub" | "dub" | "dub-sub"
-}) {
-    const hostname = new URL(url).hostname.replace("www.", "")
+                                 cardVariant = "default",
+                             }: BookmarkCardProps) {
+    const hostname = getHostname(url)
     const badge = getAvailabilityBadge(availability)
+
+    if (cardVariant === "resource") {
+        return (
+            <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${title}`}
+                className={resourceCardClass}
+            >
+                <div className="flex h-[140px] items-stretch sm:h-[152px] md:h-[164px]">
+                    {image && (
+                        <div className="relative h-full aspect-video shrink-0 overflow-hidden border-r border-black/10">
+                            <Image
+                                src={image}
+                                alt={title}
+                                fill
+                                className="object-cover transition duration-300 group-hover:scale-[1.02]"
+                                sizes="(min-width: 768px) 292px, (min-width: 640px) 270px, 249px"
+                            />
+                        </div>
+                    )}
+
+                    <div className="flex flex-1 items-center p-5 sm:p-6">
+                        <div>
+                            <p className="text-[11px] font-medium tracking-[0.04em] text-sky-700 sm:text-xs">
+                                {hostname}
+                            </p>
+
+                            <h3 className="mt-2 text-[1.2rem] font-semibold leading-[1.15] tracking-[-0.02em] text-slate-950 sm:text-[1.35rem]">
+                                {title}
+                            </h3>
+
+                            <p className="mt-2.5 max-w-[62ch] text-sm leading-6 text-slate-600 sm:text-[15px]">
+                                {description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        )
+    }
 
     return (
         <a
@@ -28,7 +90,7 @@ export function BookmarkCard({
             rel="noreferrer"
             aria-label={`Open ${title}`}
             className={[
-                "group block overflow-hidden rounded-2xl border-2 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-black/20",
+                defaultCardClass,
                 badge ? badge.borderClass : "border-black/10",
             ].join(" ")}
         >
@@ -42,12 +104,12 @@ export function BookmarkCard({
                         sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
                     />
 
-                    {badge && (
+                    {badge && typeof displayNumber === "number" && (
                         <>
-                            <div className="absolute left-1.5 top-1.5 z-10 sm:left-2 sm:top-2">
+                            <div className="absolute left-2 top-2 z-10">
                 <span
                     className={[
-                        "inline-flex min-w-[2.25rem] items-center justify-center rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                        "inline-flex min-w-[2.2rem] items-center justify-center rounded-full border bg-white/80 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
                         badge.badgeClass,
                     ].join(" ")}
                 >
@@ -55,10 +117,10 @@ export function BookmarkCard({
                 </span>
                             </div>
 
-                            <div className="absolute right-1.5 top-1.5 z-10 sm:right-2 sm:top-2">
+                            <div className="absolute right-2 top-2 z-10">
                 <span
                     className={[
-                        "inline-flex rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                        "inline-flex rounded-full border bg-white/80 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
                         badge.badgeClass,
                     ].join(" ")}
                 >
@@ -70,22 +132,23 @@ export function BookmarkCard({
                 </div>
             )}
 
-            <div className="p-4 sm:p-5">
+            <div className="p-5">
                 <div className="mb-3 flex items-start justify-between gap-3">
-                    <div>
-                        <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-500 sm:text-xs">
+                    <div className="min-w-0">
+                        <p className="text-[11px] font-medium tracking-[0.04em] text-sky-700 sm:text-xs">
                             {hostname}
                         </p>
-                        <h3 className="font-heading mt-1 text-base font-semibold tracking-tight text-neutral-900 sm:text-lg">
+
+                        <h3 className="mt-1.5 text-[1.06rem] font-semibold leading-[1.2] tracking-[-0.015em] text-slate-950 sm:text-[1.15rem]">
                             {title}
                         </h3>
                     </div>
 
-                    {!image && badge && (
+                    {!image && badge && typeof displayNumber === "number" && (
                         <div className="flex items-center gap-2">
               <span
                   className={[
-                      "inline-flex min-w-[2.25rem] items-center justify-center rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                      "inline-flex min-w-[2.2rem] items-center justify-center rounded-full border bg-white/80 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
                       badge.badgeClass,
                   ].join(" ")}
               >
@@ -94,7 +157,7 @@ export function BookmarkCard({
 
                             <span
                                 className={[
-                                    "inline-flex shrink-0 rounded-full border bg-white/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
+                                    "inline-flex shrink-0 rounded-full border bg-white/80 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md",
                                     badge.badgeClass,
                                 ].join(" ")}
                             >
@@ -104,20 +167,20 @@ export function BookmarkCard({
                     )}
                 </div>
 
-                <p className="mb-4 text-sm leading-6 text-neutral-600">
-                    {description}
-                </p>
+                <p className="mb-4 text-sm leading-6 text-slate-600">{description}</p>
 
-                <div className="flex flex-wrap gap-2">
-                    {tags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="rounded-full bg-neutral-100 px-2.5 py-1 text-[11px] text-neutral-700 sm:text-xs"
-                        >
-              #{tag}
-            </span>
-                    ))}
-                </div>
+                {tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                        {tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] text-slate-700 sm:text-xs"
+                            >
+                #{tag}
+              </span>
+                        ))}
+                    </div>
+                )}
             </div>
         </a>
     )

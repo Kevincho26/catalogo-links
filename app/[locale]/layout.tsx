@@ -1,60 +1,42 @@
-import type {Metadata} from "next"
-import {NextIntlClientProvider, hasLocale} from "next-intl"
-import {getMessages, setRequestLocale} from "next-intl/server"
-import {notFound} from "next/navigation"
-import {Geist, Manrope} from "next/font/google"
-import {Analytics} from "@vercel/analytics/next"
-import {routing} from "@/i18n/routing"
-import "@/app/globals.css"
-import {SiteHeader} from "@/components/site-header"
+import type { ReactNode } from "react"
+import { NextIntlClientProvider, hasLocale } from "next-intl"
+import { notFound } from "next/navigation"
+import { getMessages, setRequestLocale } from "next-intl/server"
 
-const geist = Geist({
-    subsets: ["latin"],
-    variable: "--font-geist",
-})
+import { routing } from "@/i18n/routing"
+import { SiteHeader } from "@/components/site-header"
 
-const manrope = Manrope({
-    subsets: ["latin"],
-    weight: ["500", "600", "700", "800"],
-    variable: "--font-heading",
-})
-
-export const metadata: Metadata = {
-    title: "Kevin's Collection",
-    description: "A curated collection of free resources on the internet.",
-}
+import "../globals.css"
 
 export function generateStaticParams() {
-    return routing.locales.map((locale) => ({locale}))
+    return routing.locales.map((locale) => ({ locale }))
 }
 
 export default async function LocaleLayout({
                                                children,
                                                params,
                                            }: {
-    children: React.ReactNode
-    params: Promise<{locale: string}>
+    children: ReactNode
+    params: Promise<{ locale: string }>
 }) {
-    const {locale} = await params
+    const { locale } = await params
 
     if (!hasLocale(routing.locales, locale)) {
         notFound()
     }
 
     setRequestLocale(locale)
+
     const messages = await getMessages()
 
     return (
-        <html
-            lang={locale}
-            data-scroll-behavior="smooth"
-            className={`${geist.variable} ${manrope.variable}`}
-        >
-        <body className="bg-neutral-50 text-neutral-900 antialiased">
+        <html lang={locale}>
+        <body className="min-h-screen bg-[#f6f7f8] text-slate-950">
         <NextIntlClientProvider messages={messages}>
-            <SiteHeader />
-            <main>{children}</main>
-            <Analytics />
+            <div className="min-h-screen">
+                <SiteHeader />
+                {children}
+            </div>
         </NextIntlClientProvider>
         </body>
         </html>

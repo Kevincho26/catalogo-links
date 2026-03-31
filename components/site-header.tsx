@@ -1,27 +1,26 @@
-import {getTranslations} from "next-intl/server"
-import {Link} from "@/i18n/navigation"
-import {LanguageSwitcher} from "@/components/language-switcher"
+import { getTranslations } from "next-intl/server"
+
+import { Link } from "@/i18n/navigation"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 export async function SiteHeader() {
     const t = await getTranslations("Header")
 
     return (
-        <header className="border-b border-black/10 bg-white/80 backdrop-blur">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-                <Link href="/" className="font-heading text-base font-semibold tracking-tight sm:text-lg">
-                    {t("brand")}
+        <header className="border-b border-black/8 bg-white/90 backdrop-blur-md">
+            <div className="container-shell flex min-h-[72px] items-center justify-between gap-4">
+                <Link href="/" className="min-w-0">
+                    <div className="flex flex-col">
+            <span className="text-[0.72rem] font-medium uppercase tracking-[0.12em] text-sky-700">
+              {t("eyebrow")}
+            </span>
+                        <span className="truncate text-lg font-semibold tracking-[-0.02em] text-slate-950 sm:text-xl">
+              {t("title")}
+            </span>
+                    </div>
                 </Link>
 
-                <div className="flex items-center gap-3">
-                    <a
-                        href="https://github.com"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="rounded-full border border-black/10 px-3 py-1.5 text-sm text-neutral-600 transition hover:bg-neutral-100"
-                    >
-                        {t("github")}
-                    </a>
-
+                <div className="shrink-0">
                     <LanguageSwitcher />
                 </div>
             </div>
